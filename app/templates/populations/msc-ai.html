@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='general.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='populations.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='Epita.png') }}">
+    <title>Population MSc AIs</title>
+</head>
+<body>
+    <div class="populations-title-wrapper">
+        <p class="populations-title"><a href="/">Home</a> / Population - <span class="bold-text">M.Sc. AIs F2021</span></p>
+    </div>
+
+    <!-- Students -->
+    <div class="students-wrapper">
+        <h3 class="students-title">Students</h3>
+
+        <table>
+            <tr>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Passed</th>
+            </tr>
+            {% for students in students %}
+            <tr>
+                <td>{{ students[0] }}</td>
+                <td>{{ students[1] }}</td>
+                <td>{{ students[2] }}</td>
+                <td>{{ students[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Courses -->
+    <div class="courses-wrapper">
+        <h3 class="courses-title">Courses</h3>
+
+        <table>
+            <tr>
+                <th>Course ID</th>
+                <th>Name</th>
+                <th>Sessions Count</th>
+            </tr>
+            <!-- {% for courses in courses %}
+            <tr>
+                <td>{{ courses[0] }}</td>
+                <td>{{ courses[1] }}</td>
+                <td>{{ courses[2] }}</td>
+            </tr>
+            {% endfor %} -->
+            <tr>
+                <td>{{ courses[0][0] }}</td>
+                <td><a href="/ais_grades/ai_data_prep">{{ courses[0][1] }}</a></td>
+                <td>{{ courses[0][2] }}</td>
+            </tr>
+            <tr>
+                <td>{{ courses[1][0] }}</td>
+                <td><a href="/ais_grades/ai_data_science_in_prod">{{ courses[1][1] }}</a></td>
+                <td>{{ courses[1][2] }}</td>
+            </tr>
+            <tr>
+                <td>{{ courses[2][0] }}</td>
+                <td><a href="/ais_grades/pg_python">{{ courses[2][1] }}</a></td>
+                <td>{{ courses[2][2] }}</td>
+            </tr>
+            <tr>
+                <td>{{ courses[3][0] }}</td>
+                <td><a href="/ais_grades/dt_rdbms">{{ courses[3][1] }}</a></td>
+                <td>{{ courses[3][2] }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Construction Date -->
+    <div id="constructionDate">
+        Website Last Generation: <span id="lastUpdatedDate"></span>
+    </div>
+
+    <script src="{{ url_for('static', filename='last-construction.js') }}"></script>
+</body>
+</html>

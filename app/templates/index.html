@@ -1,0 +1,61 @@
+<!-- Debojyoti Mishra -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='general.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='populations.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='Epita.png') }}">
+    <title>Home</title>
+</head>
+<body>    
+    <div class="welcome-message-wrapper">
+        <p class="welcome-message">Welcome, <span class="bold-text">Debojyoti</span></p>
+    </div>
+
+    <!-- Active Populations -->
+    <div class="active-populations">
+        <h3 class="activepop-title">Active Populations</h3>
+        <div class="activepop-programs">   
+            <ol class="activepop-programs-ol">
+                <li class="activepop-programs-li"><a href="/populations/ais">Msc - Artificial Intelligence Systems - F2021 ({{ students[0][0][0] }} Students) ↗︎</a></li>
+                <li class="activepop-programs-li"><a href="/populations/cs">Msc - Cyber Security - F2021 ({{ students[1][0][0] }} Students) ↗︎</a></li>
+                <li class="activepop-programs-li"><a href="/populations/dsa">MSc - Data Science and Analytics - F2021 ({{ students[2][0][0] }} Students) ↗︎</a></li>
+                <li class="activepop-programs-li"><a href="/populations/ism">Msc - Information Systems Management - F2021 ({{ students[3][0][0] }} Students) ↗︎</a></li>
+                <li class="activepop-programs-li"><a href="/populations/se">MSc - Software Engineering - F2021 ({{ students[4][0][0] }} Students) ↗︎</a></li>
+            </ol>
+        </div>
+
+        <div class="activepop-chart">
+            <img src="{{ url_for('static', filename='pie_chart.png') }}" alt="Pie Chart" width="650">
+        </div>
+    </div>
+    
+    <!--  Overall Attendance -->
+    <div class="overall-attendance">
+        <h3 class="overall-attendance-title">Overall Attendance</h3>
+        <div class="overall-attendance-programs">
+            <ol class="overall-attendance-programs-ol">
+                <li class="overall-attendance-programs-li">Msc - Artificial Intelligence Systems - F2021 ({{ attendance[0][0][3] }}%)</li>
+                <li class="overall-attendance-programs-li">Msc - Cyber Security - F2021 ({{ attendance[1][0][3] }}%)</li>
+                <li class="overall-attendance-programs-li">MSc - Data Science and Analytics ({{ attendance[2][0][3] }}%)</li>
+                <li class="overall-attendance-programs-li">Msc - Information Systems Management ({{ attendance[3][0][3] }}%)</li>
+                <li class="overall-attendance-programs-li">MSc - Software Engineering - F2021 ({{ attendance[4][0][3] }}%)</li>
+            </ol>
+        </div>
+
+        <div class="overall-attendance-chart">
+            <img src="{{ url_for('static', filename='bar_chart.png') }}" alt="Bar Chart" width="650">
+        </div>
+    </div>
+
+    <!-- Construction Date -->
+    <div id="constructionDate">
+        Website Last Generation: <span id="lastUpdatedDate"></span>
+    </div>
+
+    <script src="{{ url_for('static', filename='last-construction.js') }}"></script>
+</body>
+</html>
